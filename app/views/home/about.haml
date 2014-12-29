@@ -1,0 +1,45 @@
+- content_for :title, "About wdiffer"
+
+#about
+  %h1
+    = link_to 'wdiffer', :root
+
+  #wdiffer
+    %h2
+      About wdiffer
+    %p
+      wdiffer is a simple web tool to compare
+      %span
+        = surround('(', ',') do
+          = link_to '"diff"', 'http://en.wikipedia.org/wiki/Diff_utility'
+      in computer slang) words in two chunks of text by words. It's named after (and functionally almost equivalent to) the GNU tool
+      %span
+        = succeed('.') do
+          = link_to 'wdiff', 'http://www.gnu.org/software/wdiff/'
+
+  #history
+    %h2
+      History
+    %p
+      The use case I had in mind I built this little page is
+      %span
+        = succeed('.') do
+          = link_to "Bible memorization", "http://www.desiringgod.org/blog/posts/ten-reasons-to-memorize-big-chunks-of-the-bible"
+      I built this in December 2014 when my fiancée was traveling with family and hard to contact. We had been memorizing the book of
+      %span
+        = link_to 'Colossians', 'http://esv.literalword.com/?q=col+1-4'
+      together and I wanted a way to test myself more accurately while we weren't able to test each other.
+    %p
+      There are other similar tools out there but I found them to be cluttery, hard to use, or lacking features.
+
+  #contact
+    %h2
+      Contact
+
+    %p
+      Please feel free to
+      %span
+        = link_to 'contact me', 'http://www.jasontku.com/contact/'
+      to report bugs and suggest features or improvements. Specifically, if you are a design-minded person who wants to help make this app not look so ugly, please do reach out.
+
+
