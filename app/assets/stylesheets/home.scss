@@ -1,3 +1,7 @@
+$background-gray: #f9f9f9;
+$del-red: #ffa3a3;
+$ins-green: #79d179;
+
 #home {
   font-family: Verdana;
 }
@@ -17,7 +21,7 @@ h1 {
     width: 600px;
     height: 100px;
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: $background-gray;
   }
 
   input[type='submit'] {
@@ -30,25 +34,36 @@ h1 {
 
 }
 
-$del-red: #ffa3a3;
-$ins-green: #79d179;
-
 #results {
   margin: 10px 60px;
   text-align: center;
   font-size: 14px;
+  line-height: 26px;
+
+  del, ins {
+    padding: 3px;
+    text-decoration: none;
+  }
 
   del {
     background-color: $del-red;
-    text-decoration: none;
   }
 
   ins {
     background-color: $ins-green;
-    text-decoration: none;
+  }
+
+  .results {
+    background-color: $background-gray;
+    padding: 20px;
+  }
+
+  .results:empty {
+    display: none;
   }
 
   .loader {
     display: none;
   }
 }
+

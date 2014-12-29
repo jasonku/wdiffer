@@ -2,6 +2,10 @@
   #header
     %h1
       wdiffer
+  #results
+    %p.results
+    .loader
+      = image_tag 'loader.gif'
   #form
     = form_for @diff do |f|
       .expected
@@ -13,7 +17,3 @@
           = f.label :actual
         = f.text_area :actual, placeholder: "<Your attempt to recall 2 Timothy 3:16-17>
       = f.submit "Diff Me"
-
-  #results
-    .loader
-      = image_tag 'loader.gif'

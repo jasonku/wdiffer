@@ -6,20 +6,22 @@ class App.Views.HomeView extends App.View
   onFormSubmit: (e) =>
     e.preventDefault()
 
+
     form = e.target
 
-    $(".loader").show()
+    $('.results').html('')
+    $('.loader').show()
 
     $.ajax
       url: form.action
       type: form.method
-      dataType: "json"
+      dataType: 'json'
       data: $(form).serialize()
       success: @onDiffSuccess
 
   onDiffSuccess: (data) =>
-    $(".loader").hide()
+    $('.loader').hide()
 
     results = data.results
 
-    $('#results').html(results)
+    $('.results').html(results)
