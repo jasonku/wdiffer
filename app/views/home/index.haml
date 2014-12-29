@@ -21,7 +21,11 @@
           = f.label :actual
         = f.text_area :actual, placeholder: "<Your attempt to recall 2 Timothy 3:16-17>
       // TODO
-      //.options
-      //  = label_tag 'options[ignore_case]', "Ignore Case"
-      //  = check_box_tag 'options[ignore_case]'
+      .options
+        %p.todo
+          = check_box_tag 'options[ignore_case]', 'true', false, disabled: true
+          = label_tag 'options[ignore_case]', "Ignore Case (TODO)"
+        %p.todo
+          = check_box_tag 'options[ignore_punctuation]', 'true', false, disabled: true
+          = label_tag 'options[ignore_punctuation]', "Ignore Punctuation (TODO)"
       = f.submit "Diff Me"

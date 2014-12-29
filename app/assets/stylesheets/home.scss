@@ -14,29 +14,6 @@ $ins-green: #79d179;
     font-weight: normal;
   }
 
-  #form {
-    text-align: center;
-    p {
-      margin: 5px 0;
-    }
-
-    textarea {
-      width: 600px;
-      height: 100px;
-      padding: 10px;
-      background-color: $background-gray;
-    }
-
-    input[type='submit'] {
-      background-color: lightgreen;
-      border: none;
-      height: 40px;
-      width: 100px;
-      margin-top: 10px;
-    }
-
-  }
-
   #results {
     margin: 10px 60px;
     text-align: center;
@@ -68,6 +45,40 @@ $ins-green: #79d179;
     .loader {
       display: none;
     }
+  }
+
+  #form {
+    text-align: center;
+    p {
+      margin: 5px 0;
+    }
+
+    textarea {
+      width: 600px;
+      height: 100px;
+      padding: 10px;
+      background-color: $background-gray;
+    }
+
+    input[type='submit'] {
+      background-color: lightgreen;
+      border: none;
+      height: 40px;
+      width: 100px;
+      margin-top: 10px;
+    }
+
+    .options {
+      width: 220px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .todo {
+      font-size: 14px;
+      color: #d2d2d2;
+    }
+
   }
 
 }
