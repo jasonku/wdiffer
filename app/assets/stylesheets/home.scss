@@ -1,5 +1,23 @@
 h1 {
-  font-family: Verdana;
   text-align: center;
   font-weight: normal;
+}
+
+#form {
+  text-align: center;
+
+  textarea {
+    width: 600px;
+    height: 100px;
+    padding: 10px;
+  }
+
+  input[type='submit'] {
+    background-color: lightgreen;
+    border: none;
+    height: 40px;
+    width: 100px;
+    margin-top: 10px;
+  }
+
 }

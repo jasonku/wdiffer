@@ -4,10 +4,14 @@
       wdiffer
   #form
     = form_for @diff do |f|
-      = f.label :expected
-      = f.text_area :expected
-      = f.label :actual
-      = f.text_area :actual
-      = f.submit
+      .expected
+        %p
+          = f.label :expected
+        = f.text_area :expected
+      .actual
+        %p
+          = f.label :actual
+        = f.text_area :actual
+      = f.submit "Diff Me"
 
   #results
