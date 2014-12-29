@@ -14,3 +14,19 @@
  *= require_self
  */
 
+body {
+  font-family: Verdana;
+}
+
+h1 {
+  text-align: center;
+  font-weight: normal;
+  margin: 20px 0 0 0;
+}
+
+h1 a {
+  text-decoration: none;
+  color: black;
+}
+
+

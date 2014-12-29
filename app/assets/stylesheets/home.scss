@@ -3,67 +3,71 @@ $del-red: #ffa3a3;
 $ins-green: #79d179;
 
 #home {
-  font-family: Verdana;
+
+  .about-link {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: normal;
+  }
+
+  #form {
+    text-align: center;
+    p {
+      margin: 5px 0;
+    }
+
+    textarea {
+      width: 600px;
+      height: 100px;
+      padding: 10px;
+      background-color: $background-gray;
+    }
+
+    input[type='submit'] {
+      background-color: lightgreen;
+      border: none;
+      height: 40px;
+      width: 100px;
+      margin-top: 10px;
+    }
+
+  }
+
+  #results {
+    margin: 10px 60px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 26px;
+
+    del, ins {
+      padding: 3px;
+      text-decoration: none;
+    }
+
+    del {
+      background-color: $del-red;
+    }
+
+    ins {
+      background-color: $ins-green;
+    }
+
+    .results {
+      background-color: $background-gray;
+      padding: 20px;
+    }
+
+    .results:empty {
+      display: none;
+    }
+
+    .loader {
+      display: none;
+    }
+  }
+
 }
-
-h1 {
-  text-align: center;
-  font-weight: normal;
-}
-
-#form {
-  text-align: center;
-  p {
-    margin: 5px 0;
-  }
-
-  textarea {
-    width: 600px;
-    height: 100px;
-    padding: 10px;
-    background-color: $background-gray;
-  }
-
-  input[type='submit'] {
-    background-color: lightgreen;
-    border: none;
-    height: 40px;
-    width: 100px;
-    margin-top: 10px;
-  }
-
-}
-
-#results {
-  margin: 10px 60px;
-  text-align: center;
-  font-size: 14px;
-  line-height: 26px;
-
-  del, ins {
-    padding: 3px;
-    text-decoration: none;
-  }
-
-  del {
-    background-color: $del-red;
-  }
-
-  ins {
-    background-color: $ins-green;
-  }
-
-  .results {
-    background-color: $background-gray;
-    padding: 20px;
-  }
-
-  .results:empty {
-    display: none;
-  }
-
-  .loader {
-    display: none;
-  }
-}
-

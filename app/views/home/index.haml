@@ -1,7 +1,11 @@
+- content_for :title, 'wdiffer'
+
 #home
   #header
     %h1
-      wdiffer
+      = link_to 'wdiffer', :root
+    .about-link
+      = link_to '(about)', :about, target: '_blank'
   #results
     %p.results
     .loader
@@ -16,4 +20,8 @@
         %p
           = f.label :actual
         = f.text_area :actual, placeholder: "<Your attempt to recall 2 Timothy 3:16-17>
+      // TODO
+      //.options
+      //  = label_tag 'options[ignore_case]', "Ignore Case"
+      //  = check_box_tag 'options[ignore_case]'
       = f.submit "Diff Me"
