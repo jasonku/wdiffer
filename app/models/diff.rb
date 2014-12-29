@@ -8,6 +8,11 @@ class Diff
   attr_accessor :expected, :actual
 
   def to_html
-    Diff.diff(expected, actual)
+    diff =
+      if expected.present? || actual.present?
+        Diff.diff(expected, actual)
+      end
+
+    diff || "No diff."
   end
 end

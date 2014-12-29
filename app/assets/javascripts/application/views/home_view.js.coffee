@@ -1,7 +1,23 @@
 class App.Views.HomeView extends App.View
 
   events:
-    "click h1": "onH1Click"
+    "submit form#new_diff": "onFormSubmit"
 
-  onH1Click: =>
-    $("h1").append("HI")
+  onFormSubmit: (e) =>
+    e.preventDefault()
+
+    form = e.target
+
+    console.log("Submitting...")
+
+    $.ajax
+      url: form.action
+      type: form.method
+      dataType: "json"
+      data: $(form).serialize()
+      success: @onDiffSuccess
+
+  onDiffSuccess: (data) =>
+    results = data.results
+    console.log("SUCCESS: #{results}")
+
