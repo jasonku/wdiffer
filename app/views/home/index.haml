@@ -7,11 +7,11 @@
       .expected
         %p
           = f.label :expected
-        = f.text_area :expected
+        = f.text_area :expected, placeholder: "All Scripture is inspired by God and profitable for teaching, for reproof, for correction, for training in righteousness; so that the man of God may be adequate, equipped for every good work."
       .actual
         %p
           = f.label :actual
-        = f.text_area :actual
+        = f.text_area :actual, placeholder: "<Your attempt to recall 2 Timothy 3:16-17>
       = f.submit "Diff Me"
 
   #results

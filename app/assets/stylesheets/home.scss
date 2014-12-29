@@ -1,3 +1,7 @@
+#home {
+  font-family: Verdana;
+}
+
 h1 {
   text-align: center;
   font-weight: normal;
@@ -5,11 +9,15 @@ h1 {
 
 #form {
   text-align: center;
+  p {
+    margin: 5px 0;
+  }
 
   textarea {
     width: 600px;
     height: 100px;
     padding: 10px;
+    background-color: #f9f9f9;
   }
 
   input[type='submit'] {
@@ -20,4 +28,23 @@ h1 {
     margin-top: 10px;
   }
 
+}
+
+$del-red: #ffa3a3;
+$ins-green: #79d179;
+
+#results {
+  margin: 10px 60px;
+  text-align: center;
+  font-size: 14px;
+
+  del {
+    background-color: $del-red;
+    text-decoration: none;
+  }
+
+  ins {
+    background-color: $ins-green;
+    text-decoration: none;
+  }
 }
