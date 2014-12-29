@@ -8,6 +8,8 @@ class App.Views.HomeView extends App.View
 
     form = e.target
 
+    $(".loader").show()
+
     $.ajax
       url: form.action
       type: form.method
@@ -16,6 +18,8 @@ class App.Views.HomeView extends App.View
       success: @onDiffSuccess
 
   onDiffSuccess: (data) =>
+    $(".loader").hide()
+
     results = data.results
 
     $('#results').html(results)
