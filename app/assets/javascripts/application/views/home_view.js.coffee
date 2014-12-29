@@ -8,8 +8,6 @@ class App.Views.HomeView extends App.View
 
     form = e.target
 
-    console.log("Submitting...")
-
     $.ajax
       url: form.action
       type: form.method
@@ -19,5 +17,5 @@ class App.Views.HomeView extends App.View
 
   onDiffSuccess: (data) =>
     results = data.results
-    console.log("SUCCESS: #{results}")
 
+    $('#results').html(results)
