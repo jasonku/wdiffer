@@ -9,6 +9,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'haml', '4.0.6'
 gem 'htmldiff', git: 'https://github.com/jasonku/htmldiff.git'
+gem 'backbone-on-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
