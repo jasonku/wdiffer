@@ -3,6 +3,21 @@ class App.Views.HomeView extends App.View
   events:
     "submit form": "onFormSubmit"
     "click .js-hide-expected": "onHideExpectedClick"
+    "click .js-demo": "onDemoClick"
+
+  onDemoClick: (e) =>
+    e.preventDefault()
+
+    # TODO find a better place to put these constants
+    expected = $('.js-expected')
+    expected.val("All Scripture is inspired by God and profitable for teaching, for reproof, for correction, for training in righteousness; so that the man of God may be adequate, equipped for every good work.")
+
+    actual = $('.js-actual')
+    actual.val("Some of Scripture is inspired by God for teaching, for reproof, for correction, for training; so that the man of God may be adequate and equipped for every good work.")
+
+    $('.js-ignore-case').prop('checked', false)
+
+    $('form').submit()
 
   onFormSubmit: (e) =>
     e.preventDefault()
