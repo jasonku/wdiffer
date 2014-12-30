@@ -7,14 +7,16 @@
     .about-link
       = link_to '(about)', :about, target: '_blank'
   #results
-    %p.results
-    .loader
+    %p.results.js-results
+    .loader.js-loader
       = image_tag 'loader.gif'
   #form
     = form_for @diff do |f|
       .expected
         %p
           = f.label :expected
+          %span.js-hide-expected
+            = link_to '(hide)', '#'
         = f.text_area :expected, placeholder: "All Scripture is inspired by God and profitable for teaching, for reproof, for correction, for training in righteousness; so that the man of God may be adequate, equipped for every good work."
       .actual
         %p
