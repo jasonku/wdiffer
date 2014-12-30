@@ -1,13 +1,13 @@
 class DiffsController < ApplicationController
   def create
-    # TODO
-    # options = params[:options]
+    options = params[:options] || {}
 
     diff = Diff.new(params[:diff])
+    results = diff.to_html(options)
 
     render json: {
       success: true,
-      results: diff.to_html,
+      results: results,
     }
   end
 end

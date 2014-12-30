@@ -7,10 +7,17 @@ class Diff
 
   attr_accessor :expected, :actual
 
-  def to_html
+  def to_html(options)
+    ignore_case = options[:ignore_case]
+
+    if ignore_case
+      expected.downcase!
+      actual.downcase!
+    end
+
     diff =
       if expected.present? || actual.present?
-        Diff.diff(expected, actual)
+        Diff.diff(actual, expected)
       end
 
     diff || "No diff."
