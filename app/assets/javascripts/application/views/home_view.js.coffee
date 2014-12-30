@@ -1,7 +1,7 @@
 class App.Views.HomeView extends App.View
 
   events:
-    "submit form#new_diff": "onFormSubmit"
+    "submit form": "onFormSubmit"
     "click .js-hide-expected": "onHideExpectedClick"
 
   onFormSubmit: (e) =>
@@ -12,19 +12,39 @@ class App.Views.HomeView extends App.View
     $('.js-results').html('')
     $('.js-loader').show()
 
-    $.ajax
-      url: form.action
-      type: form.method
-      dataType: 'json'
-      data: $(form).serialize()
-      success: @onDiffSuccess
+    expected = $('.js-expected').val()
+    actual = $('.js-actual').val()
 
-  onDiffSuccess: (data) =>
+    if @ignoreCase()
+      expected = expected.toLowerCase()
+      actual = actual.toLowerCase()
+
+    expected = @escapeHTML(expected)
+    actual = @escapeHTML(actual)
+
+    JsDiff.diffWords(actual, expected, @onDiffSuccess)
+
+  ignoreCase: =>
+    $('.js-ignore-case').is(':checked')
+
+  onDiffSuccess: (dummy, diffs) =>
     $('.js-loader').hide()
 
-    results = data.results
+    results = ""
+
+    diffs.forEach (diff) =>
+      result =
+        if diff.added
+          "<ins>#{diff.value}</ins>"
+        else if diff.removed
+          "<del>#{diff.value}</del>"
+        else
+          diff.value
+
+      results = results + result
 
     $('.js-results').html(results)
+
 
   onHideExpectedClick: (e) =>
     e.preventDefault()
@@ -41,3 +61,10 @@ class App.Views.HomeView extends App.View
     link.html(linkText)
 
     expected.toggle('800')
+
+  escapeHTML: (string) =>
+    string = string.replace(/&/g, '&amp;')
+    string = string.replace(/</g, '&lt;')
+    string = string.replace(/>/g, '&gt;')
+    string = string.replace(/"/g, '&quot;')
+    string

@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :diffs, only: [:create]
-
   get 'about' => 'home#about'
 
   # The priority is based upon order of creation: first created -> highest priority.
