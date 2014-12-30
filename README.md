@@ -8,6 +8,8 @@ wdiffer is a simple web tool to compare (["diff"](http://en.wikipedia.org/wiki/D
 
 The use case I had in mind when I built this little page is [Bible memorization](http://www.desiringgod.org/blog/posts/ten-reasons-to-memorize-big-chunks-of-the-bible). My fiancée and I had been memorizing the book of [Colossians](http://esv.literalword.com/?q=col+1-4) together, testing each other on our progress every week. In December 2014, she went traveling with her family and was hard to contact, and I wanted a way to test myself more accurately while we weren't able to test each other.
 
+wdiffer works great in conjunction with [Literal Word](http://www.literalword.com)'s "Literary format" feature, which strips verse and chapter numbers for easy copy/pasting.
+
 There are other similar tools out there but I found them to be cluttery, hard to read, hard to use, or lacking features.
 
 ## Contact
@@ -19,4 +21,5 @@ Please feel free to [contact me](http://www.jasontku.com/contact/) to report bug
 * Show original input casing when ignoring case.
 * Support ignoring of punctuation.
 * Equate smart quotes with normal quotes.
+* Some sort of direct integration with Literal Word.
 * Randomize the verses that show up as placeholders in the textarea inputs.
