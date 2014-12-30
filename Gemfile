@@ -11,6 +11,7 @@ gem 'htmldiff', git: 'https://github.com/jasonku/htmldiff.git'
 gem 'backbone-on-rails'
 gem 'rails_12factor'
 gem 'pg'
+gem 'unicorn'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
