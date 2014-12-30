@@ -11,6 +11,7 @@ gem 'backbone-on-rails'
 gem 'rails_12factor'
 gem 'pg'
 gem 'unicorn'
+gem 'rdiscount'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

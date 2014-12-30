@@ -4,50 +4,5 @@
   %h1
     = link_to 'wdiffer', :root
 
-  #wdiffer
-    %h2
-      About wdiffer
-    %p
-      wdiffer is a simple web tool to compare
-      %span
-        = surround('(', ',') do
-          = link_to '"diff"', 'http://en.wikipedia.org/wiki/Diff_utility'
-      in computer slang) words in two chunks of text. It's named after (and functionally almost equivalent to) the GNU tool
-      %span
-        = link_to 'wdiff', 'http://www.gnu.org/software/wdiff/'
-      but is implemented on top of
-      = succeed('.') do
-        = link_to 'jsdiff', 'https://github.com/kpdecker/jsdiff'
-
-  #history
-    %h2
-      History
-    %p
-      The use case I had in mind when I built this little page is
-      %span
-        = succeed('.') do
-          = link_to "Bible memorization", "http://www.desiringgod.org/blog/posts/ten-reasons-to-memorize-big-chunks-of-the-bible"
-      My fiancée and I had been memorizing the book of
-      %span
-        = link_to 'Colossians', 'http://esv.literalword.com/?q=col+1-4'
-      together, testing each other on our progress every week. In December 2014, she went traveling with her family and was hard to contact, and I wanted a way to test myself more accurately while we weren't able to test each other.
-    %p
-      There are other similar tools out there but I found them to be cluttery, hard to read, hard to use, or lacking features.
-
-  #contact
-    %h2
-      Contact
-
-    %p
-      Please feel free to
-      %span
-        = link_to 'contact me', 'http://www.jasontku.com/contact/'
-      to report bugs and suggest features or improvements. Specifically, if you are a design-minded person who wants to help make this app not look so ugly, please do reach out.
-
-  #todo
-    %h2
-      TODOs
-    %ul
-      - TODOS.each do |todo|
-        %li
-          = todo
+  :markdown
+    #{README}

@@ -143,6 +143,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.4.2)
+    rdiscount (2.1.7.1)
     rdoc (4.2.0)
       json (~> 1.4)
     sass (3.4.9)
@@ -196,6 +197,7 @@ DEPENDENCIES
   pry-byebug
   rails (= 4.2.0)
   rails_12factor
+  rdiscount
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
