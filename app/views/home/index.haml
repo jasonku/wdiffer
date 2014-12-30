@@ -14,16 +14,16 @@
       = image_tag 'loader.gif'
   #form
     = form_tag do
-      .expected
+      .benchmark
         %p
-          = label_tag :expected
-          %span.js-hide-expected
+          = label_tag :benchmark
+          %span.js-hide-benchmark
             = link_to '(hide)', '#'
-        = text_area_tag :expected, nil, class: 'js-expected'
+        = text_area_tag :benchmark, nil, placeholder: "Enter the text that you want to compare against.", class: 'js-benchmark'
       .actual
         %p
           = label_tag :actual
-        = text_area_tag :actual, nil, class: 'js-actual'
+        = text_area_tag :actual, nil, placeholder: "Enter the text that you want to submit for comparison.", class: 'js-actual'
       // TODO
       .options
         %p
