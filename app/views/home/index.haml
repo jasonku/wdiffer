@@ -11,23 +11,24 @@
     .loader.js-loader
       = image_tag 'loader.gif'
   #form
-    = form_for @diff do |f|
+    = form_tag do
       .expected
         %p
-          = f.label :expected
+          = label_tag :expected
           %span.js-hide-expected
             = link_to '(hide)', '#'
-        = f.text_area :expected, placeholder: "All Scripture is inspired by God and profitable for teaching, for reproof, for correction, for training in righteousness; so that the man of God may be adequate, equipped for every good work."
+        = text_area_tag :expected, nil, placeholder: "All Scripture is inspired by God and profitable for teaching, for reproof, for correction, for training in righteousness; so that the man of God may be adequate, equipped for every good work.", class: 'js-expected'
       .actual
         %p
-          = f.label :actual
-        = f.text_area :actual, placeholder: "<Your attempt to recall 2 Timothy 3:16-17>
+          = label_tag :actual
+        = text_area_tag :actual, nil, placeholder: "<Your attempt to recall 2 Timothy 3:16-17>", class: 'js-actual'
       // TODO
       .options
         %p
-          = check_box_tag 'options[ignore_case]', 'true', false
-          = label_tag 'options[ignore_case]', "Ignore Case"
+          = check_box_tag 'ignore_case', 'true', true, class: 'js-ignore-case'
+          = label_tag 'ignore_case', "Ignore Case"
         %p.todo
-          = check_box_tag 'options[ignore_punctuation]', 'true', false, disabled: true
-          = label_tag 'options[ignore_punctuation]', "Ignore Punctuation (TODO)"
-      = f.submit "Diff Me"
+          = check_box_tag 'ignore_punctuation', 'true', false, disabled: true
+          = label_tag 'ignore_punctuation', "Ignore Punctuation (TODO)"
+
+      = submit_tag "Diff Me"

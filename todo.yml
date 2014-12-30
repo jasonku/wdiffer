@@ -1,0 +1,3 @@
+- Show original input casing when ignoring case.
+- Support ignoring of punctuation.
+- Equate smart quotes with normal quotes.

@@ -1,9 +1,3 @@
-GIT
-  remote: https://github.com/jasonku/htmldiff.git
-  revision: c3b9112b34e9c37e805068ae3a6a42388666e67e
-  specs:
-    htmldiff (0.0.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -195,7 +189,6 @@ DEPENDENCIES
   backbone-on-rails
   coffee-rails (~> 4.1.0)
   haml (= 4.0.6)
-  htmldiff!
   jbuilder (~> 2.0)
   jquery-rails
   pg

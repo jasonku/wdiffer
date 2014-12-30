@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
+//= require diff
 //
 //= require_tree .
 //= require application/app
