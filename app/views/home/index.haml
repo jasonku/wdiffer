@@ -4,8 +4,10 @@
   #header
     %h1
       = link_to 'wdiffer', :root
-    .about-link
+    .header-links
       = link_to '(about)', :about, target: '_blank'
+      %span.js-demo
+        = link_to '(demo)', '#'
   #results
     %p.results.js-results
     .loader.js-loader
@@ -17,11 +19,11 @@
           = label_tag :expected
           %span.js-hide-expected
             = link_to '(hide)', '#'
-        = text_area_tag :expected, nil, placeholder: "All Scripture is inspired by God and profitable for teaching, for reproof, for correction, for training in righteousness; so that the man of God may be adequate, equipped for every good work.", class: 'js-expected'
+        = text_area_tag :expected, nil, class: 'js-expected'
       .actual
         %p
           = label_tag :actual
-        = text_area_tag :actual, nil, placeholder: "<Your attempt to recall 2 Timothy 3:16-17>", class: 'js-actual'
+        = text_area_tag :actual, nil, class: 'js-actual'
       // TODO
       .options
         %p
