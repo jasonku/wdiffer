@@ -24,9 +24,9 @@
         = f.text_area :actual, placeholder: "<Your attempt to recall 2 Timothy 3:16-17>
       // TODO
       .options
-        %p.todo
-          = check_box_tag 'options[ignore_case]', 'true', false, disabled: true
-          = label_tag 'options[ignore_case]', "Ignore Case (TODO)"
+        %p
+          = check_box_tag 'options[ignore_case]', 'true', false
+          = label_tag 'options[ignore_case]', "Ignore Case"
         %p.todo
           = check_box_tag 'options[ignore_punctuation]', 'true', false, disabled: true
           = label_tag 'options[ignore_punctuation]', "Ignore Punctuation (TODO)"

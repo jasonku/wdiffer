@@ -72,10 +72,13 @@ $ins-green: #79d179;
       width: 220px;
       margin: 0 auto;
       text-align: left;
+
+      p {
+        font-size: 14px;
+      }
     }
 
     .todo {
-      font-size: 14px;
       color: #d2d2d2;
     }
 
