@@ -56,7 +56,7 @@ class App.Views.HomeView extends App.View
 
     $('.js-ignore-case').prop('checked', false)
 
-    $('form').submit()
+    $('.js-diff form').submit()
 
   onDiffSubmit: (e) =>
     e.preventDefault()
