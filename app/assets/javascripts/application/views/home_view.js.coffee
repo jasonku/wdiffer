@@ -1,9 +1,36 @@
 class App.Views.HomeView extends App.View
 
   events:
-    "submit form": "onFormSubmit"
-    "click .js-hide-benchmark": "onHideBenchmarkClick"
+    "submit .js-diff form": "onDiffSubmit"
+    "click .js-toggle-benchmark": "onToggleBenchmarkClick"
+    "click .js-use-passage": "onUsePassageClick"
     "click .js-demo": "onDemoClick"
+    "submit .js-passage form": "onPassageSubmit"
+
+  onPassageSubmit: (e) =>
+    e.preventDefault()
+
+    form = e.target
+
+    @showLoader()
+
+    # TODO move this into a backbone model.
+    $.ajax
+      url: form.action
+      type: form.method
+      dataType: 'json'
+      data: $(form).serialize()
+      success: @onPassageSuccess
+
+  onPassageSuccess: (data) =>
+    @hideLoader()
+
+    passagesContent = ''
+    for reference, content of data
+      passagesContent = passagesContent + ' ' + content
+
+    contentForBenchmark = $('<div/>').html(passagesContent).text()
+    $('.js-benchmark').val(contentForBenchmark).text()
 
   onDemoClick: (e) =>
     e.preventDefault()
@@ -19,31 +46,40 @@ class App.Views.HomeView extends App.View
 
     $('form').submit()
 
-  onFormSubmit: (e) =>
+  onDiffSubmit: (e) =>
     e.preventDefault()
 
     form = e.target
 
-    $('.js-results').html('')
-    $('.js-loader').show()
-
     benchmark = $('.js-benchmark').val()
     actual = $('.js-actual').val()
 
-    if @ignoreCase()
-      benchmark = benchmark.toLowerCase()
-      actual = actual.toLowerCase()
+    if benchmark || actual
+      $('.js-results').html('')
+      @showLoader()
 
-    benchmark = @escapeHTML(benchmark)
-    actual = @escapeHTML(actual)
+      if @ignoreCase()
+        benchmark = benchmark.toLowerCase()
+        actual = actual.toLowerCase()
 
-    JsDiff.diffWords(actual, benchmark, @onDiffSuccess)
+      benchmark = @escapeHTML(benchmark)
+      actual = @escapeHTML(actual)
+
+      JsDiff.diffWords(actual, benchmark, @onDiffSuccess)
+    else
+      $('.js-results').html("Please enter some text to compare.")
+
+  showLoader: =>
+    $('.js-loader').show()
+
+  hideLoader: =>
+    $('.js-loader').hide()
 
   ignoreCase: =>
     $('.js-ignore-case').is(':checked')
 
   onDiffSuccess: (dummy, diffs) =>
-    $('.js-loader').hide()
+    @hideLoader()
 
     results = ""
 
@@ -61,7 +97,7 @@ class App.Views.HomeView extends App.View
     $('.js-results').html(results)
 
 
-  onHideBenchmarkClick: (e) =>
+  onToggleBenchmarkClick: (e) =>
     e.preventDefault()
 
     benchmark = $('.js-benchmark')
@@ -76,6 +112,15 @@ class App.Views.HomeView extends App.View
     link.html(linkText)
 
     benchmark.toggle('800')
+
+  onUsePassageClick: (e) =>
+    e.preventDefault()
+
+    passageLookup = $('.js-passage')
+
+    passageLookup.toggle('800')
+
+    $('.js-passage-query').focus()
 
   escapeHTML: (string) =>
     string = string.replace(/&/g, '&amp;')
