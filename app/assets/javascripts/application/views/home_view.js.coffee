@@ -37,9 +37,10 @@ class App.Views.HomeView extends App.View
     @hideLoader()
     @hidePassageError()
 
-    passagesContent = ''
-    for reference, content of data
-      passagesContent = passagesContent + ' ' + content
+    passagesContent =
+      _.map data, (content, reference) =>
+        content
+    passagesContent = passagesContent.join(' ')
 
     contentForBenchmark = $('<div/>').html(passagesContent).text()
     $('.js-benchmark').val(contentForBenchmark).text()
