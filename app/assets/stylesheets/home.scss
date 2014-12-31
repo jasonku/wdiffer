@@ -38,8 +38,13 @@ $ins-green: #79d179;
       padding: 20px;
     }
 
-    .results:empty {
+    .results-container {
       display: none;
+      margin: 10px 0;
+    }
+
+    .results-header {
+      font-size: 16px;
     }
 
     .loader {
