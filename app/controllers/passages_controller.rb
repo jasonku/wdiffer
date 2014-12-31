@@ -5,6 +5,12 @@ class PassagesController < ApplicationController
 
     passages = Passage.new(query, version).content
 
-    render json: passages
+    if passages
+      render json: passages
+    else
+      render json: {
+        error: true
+      }, status: 500
+    end
   end
 end
