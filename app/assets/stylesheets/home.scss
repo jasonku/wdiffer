@@ -22,7 +22,6 @@ $ins-green: #79d179;
 
     del, ins {
       padding: 3px;
-      text-decoration: none;
     }
 
     del {
@@ -31,6 +30,7 @@ $ins-green: #79d179;
 
     ins {
       background-color: $ins-green;
+      text-decoration: none;
     }
 
     .results {
