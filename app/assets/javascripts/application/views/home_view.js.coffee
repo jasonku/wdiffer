@@ -3,9 +3,15 @@ class App.Views.HomeView extends App.View
   events:
     "submit .js-diff form": "onDiffSubmit"
     "click .js-toggle-benchmark": "onToggleBenchmarkClick"
+    "click .js-hide-results": "onHideResultsClick"
     "click .js-use-passage": "onUsePassageClick"
     "click .js-demo": "onDemoClick"
     "submit .js-passage form": "onPassageSubmit"
+
+  onHideResultsClick: (e) =>
+    e.preventDefault()
+
+    $('.js-results-container').hide()
 
   onPassageSubmit: (e) =>
     e.preventDefault()
@@ -68,7 +74,7 @@ class App.Views.HomeView extends App.View
     actual = $('.js-actual').val()
 
     if benchmark || actual
-      $('.js-results').html('')
+      @showResults('')
       @showLoader()
 
       if @ignoreCase()
@@ -80,7 +86,7 @@ class App.Views.HomeView extends App.View
 
       JsDiff.diffWords(actual, benchmark, @onDiffSuccess)
     else
-      $('.js-results').html("Please enter some text to compare.")
+      @showResults("Please enter some text to compare.")
 
   showLoader: =>
     $('.js-loader').show()
@@ -94,7 +100,7 @@ class App.Views.HomeView extends App.View
   onDiffSuccess: (dummy, diffs) =>
     @hideLoader()
 
-    results = ""
+    resultsContent = ""
 
     diffs.forEach (diff) =>
       result =
@@ -105,10 +111,15 @@ class App.Views.HomeView extends App.View
         else
           diff.value
 
-      results = results + result
+      resultsContent = resultsContent + result
 
-    $('.js-results').html(results)
+    @showResults(resultsContent)
 
+  showResults: (content) =>
+    resultsContainer = $('.js-results-container')
+    results = $('.js-results')
+    results.html(content)
+    resultsContainer.show()
 
   onToggleBenchmarkClick: (e) =>
     e.preventDefault()

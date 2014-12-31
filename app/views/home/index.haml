@@ -9,7 +9,12 @@
       %span.js-demo
         = link_to '(demo)', '#'
   #results
-    %p.results.js-results
+    .results-header.results-container.js-results-container
+      Results
+      %span.js-hide-results
+        = link_to '(hide)', '#'
+    .results.results-container.js-results-container
+      .js-results
     .loader.js-loader
       = image_tag 'loader.gif'
   #form
