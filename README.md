@@ -10,6 +10,8 @@ The use case I had in mind when I built this little page is [Bible memorization]
 
 There are other similar tools out there but I found them to be cluttery, hard to read, hard to use, or lacking features.
 
+Thanks to CW, IC, AS, RWL, RSL, and DK for their valuable feedback on the very early versions of wdiffer.
+
 ## Contact
 
 Please feel free to [contact me](http://www.jasontku.com/contact/) to report bugs and suggest features or improvements. Specifically, if you are a design-minded person who wants to help make this app not look so ugly, please do reach out.
