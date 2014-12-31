@@ -29,6 +29,9 @@
           = label_tag "version_nasb", "NASB"
           = radio_button_tag :version, "nasb"
           = submit_tag "Look up passage"
+    .js-passage-error.passage-error
+      %p
+        Sorry, this doesn't look like a valid passage. If this is unexpected, please <a href='/about' target='_blank'>contact me</a>.
     .js-diff
       = form_tag do
         .benchmark

@@ -57,6 +57,13 @@ $ins-green: #79d179;
       display: none;
     }
 
+    .passage-error {
+      display: none;
+      color: red;
+      font-size: 12px;
+      padding: 5px;
+    }
+
     textarea {
       width: 600px;
       height: 100px;

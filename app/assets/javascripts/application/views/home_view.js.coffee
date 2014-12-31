@@ -21,9 +21,21 @@ class App.Views.HomeView extends App.View
       dataType: 'json'
       data: $(form).serialize()
       success: @onPassageSuccess
+      error: @onPassageError
+
+  showPassageError: =>
+    $('.js-passage-error').show()
+
+  hidePassageError: =>
+    $('.js-passage-error').hide()
+
+  onPassageError: (xhr, textStatus, errorThrown) =>
+    @hideLoader()
+    @showPassageError()
 
   onPassageSuccess: (data) =>
     @hideLoader()
+    @hidePassageError()
 
     passagesContent = ''
     for reference, content of data
