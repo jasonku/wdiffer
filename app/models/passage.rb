@@ -21,10 +21,12 @@ class Passage
 
   def content
     response = Net::HTTP.get_response(@uri)
-    begin
-      JSON.parse(response.body)
-    rescue JSON::ParserError => e
-      false
+    if response.code == "200"
+      begin
+        JSON.parse(response.body)
+      rescue JSON::ParserError => e
+        false
+      end
     end
   end
 
