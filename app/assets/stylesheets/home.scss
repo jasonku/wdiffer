@@ -60,6 +60,14 @@ $ins-green: #79d179;
 
     .passage {
       display: none;
+      border: 1px solid black;
+      width: 600px;
+      margin: 10px auto;
+      padding: 0 10px 10px 10px;
+    }
+
+    .literal-word {
+      font-size: 10px;
     }
 
     .passage-error {
