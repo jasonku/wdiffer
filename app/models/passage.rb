@@ -2,7 +2,6 @@ class Passage
   include ActiveModel::Model
 
   ALLOWED_VERSIONS = %w(esv nasb)
-  TOKEN = '4DeHOMXXefsifxk29w7s8UI9MNKV9BCkipdkUOoZ3'
 
   attr_accessor :query, :version
 
@@ -15,7 +14,7 @@ class Passage
     @uri.query = URI.encode_www_form(
       q: query,
       format: 'json',
-      token: TOKEN,
+      token: ENV['LITERAL_WORD_TOKEN'],
     )
   end
 
