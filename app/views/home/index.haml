@@ -53,6 +53,9 @@
         // TODO
         .options
           %p
+            = check_box_tag 'check_live', 'false', false, class: 'js-check-live'
+            = label_tag 'check_live', "Check Live"
+          %p
             = check_box_tag 'ignore_case', 'true', true, class: 'js-ignore-case'
             = label_tag 'ignore_case', "Ignore Case"
           %p.todo

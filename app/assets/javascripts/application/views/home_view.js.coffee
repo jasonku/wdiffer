@@ -1,4 +1,5 @@
 class App.Views.HomeView extends App.View
+  spaceKeyCode: 32
 
   events:
     "submit .js-diff form": "onDiffSubmit"
@@ -6,12 +7,22 @@ class App.Views.HomeView extends App.View
     "click .js-hide-results": "onHideResultsClick"
     "click .js-use-passage": "onUsePassageClick"
     "click .js-demo": "onDemoClick"
+    "keyup .js-actual": "onActualKeyup"
     "submit .js-passage form": "onPassageSubmit"
 
   onHideResultsClick: (e) =>
     e.preventDefault()
 
     $('.js-results-container').hide()
+
+  onActualKeyup: (e) =>
+    if (@checkLive() and e.keyCode is @spaceKeyCode)
+      benchmark = $('.js-benchmark').val()
+      actual = $('.js-actual').val().trim()
+
+      actualWordCount = actual.split(' ').length
+      partialBenchmark = benchmark.split(' ')[0..actualWordCount-1].join(' ').trim()
+      @diff(partialBenchmark, actual)
 
   onPassageSubmit: (e) =>
     e.preventDefault()
@@ -73,9 +84,13 @@ class App.Views.HomeView extends App.View
     benchmark = $('.js-benchmark').val()
     actual = $('.js-actual').val()
 
+    @diff(benchmark, actual)
+
+  diff: (benchmark, actual) =>
     if benchmark || actual
-      @showResults('')
-      @showLoader()
+      unless @checkLive()
+        @showResults('')
+        @showLoader()
 
       if @ignoreCase()
         benchmark = benchmark.toLowerCase()
@@ -93,6 +108,9 @@ class App.Views.HomeView extends App.View
 
   hideLoader: =>
     $('.js-loader').hide()
+
+  checkLive: =>
+    $('.js-check-live').is(':checked')
 
   ignoreCase: =>
     $('.js-ignore-case').is(':checked')
