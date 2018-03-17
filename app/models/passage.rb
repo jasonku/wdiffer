@@ -1,3 +1,6 @@
+require 'net/http'
+require 'cgi'
+
 class Passage
   include ActiveModel::Model
 
@@ -10,16 +13,13 @@ class Passage
       raise "'#{version}' is not a valid version."
     end
 
-    @uri = URI("http://#{version}.literalword.com")
-    @uri.query = URI.encode_www_form(
-      q: query,
-      format: 'json',
-      token: ENV['LITERAL_WORD_TOKEN'],
-    )
+    @uri = URI.parse("https://#{version}.literalword.com?q=#{CGI.escape(query)}&format=json&token=#{ENV['LITERAL_WORD_TOKEN']}")
+    @http = Net::HTTP.new(@uri.host, @uri.port)
+    @http.use_ssl = true
   end
 
   def content
-    response = Net::HTTP.get_response(@uri)
+    response = @http.get(@uri.request_uri)
     if response.code == "200"
       begin
         JSON.parse(response.body)

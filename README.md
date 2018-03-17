@@ -2,7 +2,7 @@
 
 ## About wdiffer
 
-wdiffer is a simple web tool to compare (["diff"](http://en.wikipedia.org/wiki/Diff_utility), in computer slang) words in two chunks of text. It's named after (and functionally almost equivalent to) the GNU tool [wdiff](http://www.gnu.org/software/wdiff/) but is implemented on top of [jsdiff](https://github.com/kpdecker/jsdiff) and [Literal Word](http://www.literalword.com).
+wdiffer is a simple web tool to compare (["diff"](http://en.wikipedia.org/wiki/Diff_utility), in computer slang) words in two chunks of text. It's named after (and functionally almost equivalent to) the GNU tool [wdiff](http://www.gnu.org/software/wdiff/) but is implemented on top of [jsdiff](https://github.com/kpdecker/jsdiff) and [Literal Word](https://www.literalword.com).
 
 ## History
 
